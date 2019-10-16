@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Metropolis;
+    src: url(assets/font/Metropolis1920-Regular.otf) format("opentype");
+  }
