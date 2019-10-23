@@ -10,7 +10,9 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    document.querySelector('.img__btn').addEventListener('click', function() {
+      document.querySelector('.cont').classList.toggle('s--signup');
+    });
   }
 
 }
