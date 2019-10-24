@@ -33,4 +33,4 @@ Install Bootstrap, JQuery, Font-Awesome. (For this, run command "npm install boo
 
 check git pull
 
-readme
+
