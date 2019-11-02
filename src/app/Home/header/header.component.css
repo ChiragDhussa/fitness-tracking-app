@@ -5,13 +5,11 @@
     font-family: Garamond;
     color: #ED2553;
     font-size: 40px;
-    width: 60px;
-    
+    width: 60px;  
 }
 .nav-item .nav-link:hover {
     color: #ED2553;
 }
-
 
   ul { 
     margin: 0; 
@@ -26,7 +24,7 @@
     position: relative; 
     padding: 15px 0;
   }
-  a {
+  a.navbar-link {
     color: #000;
     text-transform: uppercase;
     text-decoration: none;
@@ -36,7 +34,7 @@
     padding: 15px 20px;
     position: relative;
   }
-  a:after {    
+  a.navbar-link:after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -48,7 +46,7 @@
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after { 
+  a.navbar-link:hover:after { 
     width: 100%; 
     left: 0; 
   }
@@ -57,4 +55,5 @@
           margin-top: 40px;
       }
   }
+
   
