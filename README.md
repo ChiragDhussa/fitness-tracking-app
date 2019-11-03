@@ -30,7 +30,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Install Bootstrap, JQuery, Font-Awesome. (For this, run command "npm install bootstrap jquery font-awesome")
 
-
-check git pull
-
-master branch pull request

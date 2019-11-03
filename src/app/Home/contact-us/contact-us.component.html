@@ -1,0 +1,143 @@
+<!-- <div  class="backcolor" >
+    
+    <div><h4 class="fontlook"><br>Get In Touch</h4>
+    <p class="fontlooksmall">
+            Reque facer nostro et ius, cu persius mnesarchum disputando eam, clita prompta et mel vidisse phaedrum pri et. Facilisis posidonium ex his. Mutat iudico vis in, mea aeque tamquam scripserit an, mea eu ignota viderer probatus. Lorem legere consetetur ei
+            eum. Sumo aeque assentior te eam, pri nominati posidonium consttuam
+        </p>
+    </div>
+    
+                                         
+                <div id="left" style="float:left; width:50%; height: 403px; margin-top: -30px;"  class="backcolor"> 
+                    <div style="margin-top: 50px;">
+                        <form style="margin-right: 30px ; margin-left: 20px;">
+                                <div class="form-group" style="margin-bottom: 25px">
+                                        
+                                        <input type="text" class="form-control , form-control form-control-lg , textbox" id="exampleInputName"  placeholder="Enter name">
+                                        
+                                      </div>
+                                      <div class="form-group" style="margin-bottom: 25px">
+                                       
+                                        <input type="text" class="form-control , form-control form-control-lg , textbox" id="exampleInputEmail" placeholder="Enter Email">
+                                      </div>
+                                      <div class="form-group">
+                                       
+                                            <input type="text" class="form-control , form-control form-control-lg , textbox" id="exampleInputSubject" placeholder="Subject">
+                                          </div>
+                        </form>>
+                        </div>
+
+                 </div>         
+
+                <div id="right" style="float:right; width:50%; height: 403px; margin-top: -30px;"  class="backcolor">
+                    <div style="margin-top: 50px;">
+                    <form style="margin-right: 20px; margin-left: 30px;">
+                            <div class="form-group">
+                                       
+                                    <textarea class="form-control" rows="3" id="comment" name="text" placeholder="Enter Message"></textarea>
+                                  </div>
+
+                    </form>
+                    </div>
+
+                 </div>                   
+              
+
+</div> -->
+
+
+
+
+<section class="first">
+  <div class="container">
+      <h1 class="title-first">We'd love to hear from you!</h1>
+      <p class="msg">You can give your valuable feedback or if you have any query, then you can write to us below.</p>
+  </div>
+</section>
+<section class="second">
+  <div class="container">
+      <h2 class="title-second" style="margin-top: -70px;">Give us feedback!</h2>
+      <div id="left" style="float:left; width:50% ;margin-top: -60px; "> 
+
+        <form [formGroup]="reactiveForm"  style="margin-right:30px">
+          <div>
+          <input 
+                 style="margin-bottom: 25px"
+                 type="text"
+                 formControlName="name" 
+                 class="form-control , form-control form-control-lg , textbox" 
+                 id="exampleInputName"  
+                 placeholder="Enter name"
+                 [ngClass]="{'is-invalid': reactiveForm.get('name').touched && reactiveForm.get('name').invalid }">
+        
+                 <div class="invalid-feedback">
+                  <div style="color: red ; margin-top: -20px;  margin-left:5px" >Name is required</div>
+              </div>
+                </div>
+          <div>
+          <input 
+                 style="margin-bottom: 25px" 
+                 type="text"
+                 formControlName="email"
+                 class="form-control , form-control form-control-lg , textbox" 
+                 id="exampleInputemail"  
+                 placeholder="Enter email"
+                 [ngClass]="{'is-invalid': reactiveForm.get('email').touched && reactiveForm.get('email').invalid }"
+                 >
+                 <div class="invalid-feedback">
+                  <div style="color: red ; margin-top:-20px ; margin-left:5px">Email is required</div>
+              </div>
+
+
+                 </div>
+        
+          
+          <input 
+                 style="margin-bottom: 25px"
+                 type="text"
+                 formControlName="subject"
+                 class="form-control , form-control form-control-lg , textbox" 
+                 id="exampleInputsubject"  
+                 placeholder="Enter subject"
+                 [ngClass]="{'is-invalid': reactiveForm.get('subject').touched && reactiveForm.get('subject').invalid }"
+                 >
+                 <div class="invalid-feedback">
+                  <div style="color: red ; margin-top:-20px ; margin-left:5px">Subject is required</div>
+              </div>
+          
+        </form>
+
+
+      </div>
+
+      <div id="right" style="float:right; width:50% ;margin-top: -60px ; "> 
+
+        <form [formGroup]="reactiveForm" style="margin-left: 30px;">
+         
+          
+          <input 
+                 type="text"
+                 formControlName="message"
+                 class="form-control , form-control form-control-lg , placeholder" 
+                 id="exampleInputsubject"  
+                 placeholder="Enter message"
+                 style="height:154px;"
+                 [ngClass]="{'is-invalid': reactiveForm.get('message').touched && reactiveForm.get('message').invalid }">
+                 <div class="invalid-feedback">
+                  <div style="color: red ; margin-left:5px">Message is required</div>
+              </div>
+                 <br>
+                 <br>
+
+                 <button type="submit" class="btn btn-success btn-lg"
+                 style="margin-top: -10px;"
+                 (click)="onComposeHandler()"
+                 >Success</button>
+        
+          
+        </form>
+
+        </div>
+      
+  </div>
+</section>

@@ -1,0 +1,80 @@
+.placeholder,
+.placeholder::-webkit-placeholder-placeholder {
+    font-size: 20px;
+    line-height: 2;
+    padding-bottom: 20%;
+    
+
+
+}
+
+.backcolor{
+    background-color: #2aba9f;
+}
+.fontlook{
+    font-family:  'Open Sans', Arial, sans-serif;
+    
+    text-align: center;
+margin-bottom: 40px;
+font-size: 46px;
+font-weight: 700;
+letter-spacing: -1px;
+color:white;
+
+}
+
+.textbox{
+height:65px;
+}
+
+
+.fontlooksmall{
+    font-family:  'Open Sans', Arial, sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    
+color:white;
+
+}
+
+
+.first{
+    background-image: url('poly2.jpg');
+    padding-top: 100px;
+    height: 350px;
+}
+.title-first{
+    font-size: 70px;
+    font-family:  'Tahoma', Geneva, sans-serif;
+    font-weight: 650;
+    text-align: center;
+    color: #FFF;
+}
+.msg{
+    margin-top: 15px;
+    text-align: center;
+    color: #FFF;
+    font-size: 18px;
+}
+section{
+    position: relative;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+}
+.second { 
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+}
+.title-second{
+    font-size: 50px;
+    
+    font-weight: 650;
+   
+    color: black;
+    margin-bottom: 90px;
+    font-family:  'Tahoma', Geneva, sans-serif;
+    
+    text-align: center;
+}
