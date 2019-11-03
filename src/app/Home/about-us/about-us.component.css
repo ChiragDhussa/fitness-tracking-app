@@ -20,8 +20,11 @@
 }
 
 .bg{
-  background: url("https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/wi/art/fitness-super-store-uk-6cc4cc8df9.jpg");
+  background-image: url("src\assets\images\backgrd.jpg");
   height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 
