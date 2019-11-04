@@ -11,6 +11,10 @@ export class ContactUsComponent implements OnInit {
 
   faBookOpen = faBookOpen;
   emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+<<<<<<< HEAD
+=======
+  namePattern: string = "[a-zA-Z]*";
+>>>>>>> cf45f3b55ecb29199e7dfb5dcf4167dd1fb7a4fd
 
   get getFullName() {
     return this.registrationForm.get('fullName');
@@ -33,7 +37,7 @@ export class ContactUsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   registrationForm = this.fb.group({
-    fullName: ['', Validators.required],
+    fullName: ['', [Validators.required, Validators.pattern(this.namePattern)]],
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     subject: ['', [Validators.required, Validators.minLength(10)]],
     message: ['', [Validators.required, Validators.minLength(25)]]

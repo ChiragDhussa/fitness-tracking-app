@@ -5,9 +5,11 @@ body{
  form{
     padding: 0px;
     margin: 0px;
- }
- .first{
-    background-image: url('src/assets/images/poly-image.jpg');
+}
+.first{
+    background: rgb(255,20,147);
+    background: radial-gradient(circle, rgba(255,20,147,1) 46%, rgba(192,48,203,1) 99%);
+    /* background-image: url('src/assets/images/poly-image.jpg'); */
     padding-top: 100px;
     height: 300px;
 }
@@ -49,42 +51,24 @@ section{
     font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
     color: #333333;
 }
-.offset {
-    box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
-}
-.offset:hover, .offset:focus {
-    box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
-}
-.offset {
-    --color: #19bc8b;
-    --hover: #1973bc;
-}
-button:hover, button:focus {
-    border-color: var(--hover);
-    color: #fff;
+button:disabled{
+    color: white;
+    opacity: 0.7;
+    background-color:#FF69B4;
+    border-color: #FF69B4;
+    border-radius: 10px;
+    border: 0;
 }
 button {
-    color: var(--color);
-    transition: 0.25s;
+    color: white;
     background: none;
-    border: 2px solid;
+    background-color:#FF69B4;
+    border-color: #FF69B4;
     font: inherit;
     line-height: 1;
-    margin: 0.5em;
     padding: 1em 2em;
     border-radius: 10px;
-}
-
-button:disabled {
-    color: var(--color);
-    /* transition: 0.25s; */
-    background: none;
-    border: 2px solid;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    border-radius: 10px;
+    border: 0;
 }
 #image-contact {
     height: 315px;
