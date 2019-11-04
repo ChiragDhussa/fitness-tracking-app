@@ -11,10 +11,7 @@ export class ContactUsComponent implements OnInit {
 
   faBookOpen = faBookOpen;
   emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-<<<<<<< HEAD
-=======
   namePattern: string = "[a-zA-Z]*";
->>>>>>> cf45f3b55ecb29199e7dfb5dcf4167dd1fb7a4fd
 
   get getFullName() {
     return this.registrationForm.get('fullName');
@@ -28,12 +25,7 @@ export class ContactUsComponent implements OnInit {
   get getMessage() {
     return this.registrationForm.get('message');
   }
-  // registrationForm = new FormGroup({
-  //   fullName: new FormControl('Chirag Dhussa'),
-  //   email: new FormControl(''),
-  //   subject: new FormControl(''),
-  //   message: new FormControl('')
-  // });
+
   constructor(private fb: FormBuilder) { }
 
   registrationForm = this.fb.group({
