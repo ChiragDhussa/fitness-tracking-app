@@ -270,3 +270,8 @@
   small{
     margin-left: 140px;
   }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }

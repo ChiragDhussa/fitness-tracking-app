@@ -7,8 +7,7 @@ body{
     margin: 0px;
 }
 .first{
-    background: rgb(255,20,147);
-    background: radial-gradient(circle, rgba(255,20,147,1) 46%, rgba(192,48,203,1) 99%);
+    background-image : linear-gradient(to right, rgba(237,37,83) , rgba(244,124,151));
     /* background-image: url('src/assets/images/poly-image.jpg'); */
     padding-top: 100px;
     height: 300px;
@@ -54,16 +53,16 @@ section{
 button:disabled{
     color: white;
     opacity: 0.7;
-    background-color:#FF69B4;
-    border-color: #FF69B4;
+    background-color:#f05075;
+    border-color: #f05075;
     border-radius: 10px;
     border: 0;
 }
 button {
     color: white;
     background: none;
-    background-color:#FF69B4;
-    border-color: #FF69B4;
+    background-color:#ed2553;
+    border-color: #ed2553;
     font: inherit;
     line-height: 1;
     padding: 1em 2em;
