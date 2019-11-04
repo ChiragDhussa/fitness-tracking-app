@@ -5,8 +5,8 @@ body{
  form{
     padding: 0px;
     margin: 0px;
- }
- .first{
+}
+.first{
     background: rgb(255,20,147);
     background: radial-gradient(circle, rgba(255,20,147,1) 46%, rgba(192,48,203,1) 99%);
     /* background-image: url('src/assets/images/poly-image.jpg'); */
