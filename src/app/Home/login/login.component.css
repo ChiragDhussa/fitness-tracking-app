@@ -31,7 +31,7 @@
     background: #fff;
   }
   
-  .form {
+  form {
     position: relative;
     width: 640px;
     height: 100%;
@@ -68,6 +68,13 @@
     color: #fff;
     font-size: 15px;
     cursor: pointer;
+    margin-left: 165px;
+    background: #ed2553;
+  }
+
+  button:disabled{
+    cursor: default;
+    background: #f05075;
   }
   
   .img {
@@ -87,7 +94,7 @@
     top: 0;
     width: 900px;
     height: 100%;
-    background-image: url('src/assets/images/luis-quintero-aoz8a7jO0QI-unsplash.jpg');
+    background-image: url('/assets/images/luis-quintero-aoz8a7jO0QI-unsplash.jpg');
     background-size: cover;
     transition: -webkit-transform 1.2s ease-in-out;
     transition: transform 1.2s ease-in-out;
@@ -211,6 +218,7 @@
     display: block;
     width: 100%;
     margin-top: 5px;
+    margin-left: 40px;
     padding-bottom: 5px;
     font-size: 16px;
     border-bottom: 1px solid #ed2553;
@@ -227,7 +235,6 @@
   .submit {
     margin-top: 40px;
     margin-bottom: 20px;
-    background: #ed2553;
     text-transform: uppercase;
   }
   
@@ -259,3 +266,6 @@
             transform: translate3d(0, 0, 0);
   }
   
+  small{
+    margin-left: 140px;
+  }
