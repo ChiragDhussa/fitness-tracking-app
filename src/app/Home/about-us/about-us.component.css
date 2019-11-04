@@ -20,8 +20,8 @@
 }
 
 .bg{
-  background-image: url("src\assets\images\backgrd.jpg");
-  height: 500px;
+  background-image: url("src/assets/images/backgrd.jpg");
+  height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
   
