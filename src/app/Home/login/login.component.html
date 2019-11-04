@@ -85,18 +85,47 @@
       
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Gender</span></label>
-        <div class="col-sm-10">
+        <div class="col-sm-10 row" >
           <div class="custom-control custom-radio">
             <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
-            <label class="custom-control-label" for="male">Male</label>
+            <label class="custom-control-label" for="male" style="width: 50px; margin-left: 60px;">Male</label>
           </div>    
           <div class="custom-control custom-radio">
             <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
-            <label class="custom-control-label" for="female">Female</label>
+            <label class="custom-control-label" for="female" style="width: 50px; margin-left: 50px;">Female</label>
           </div>
+          <div class="custom-control custom-radio">
+            <input id="others" type="radio" class="custom-control-input" value="others" name="gender" formControlName="gender">
+            <label class="custom-control-label" for="others" style="width: 50px; margin-left: 50px;">Others</label>
+          </div>
+          <div *ngIf="getGender.invalid && getGender.touched">
+              <small *ngIf="getGender.errors?.required" class="text-danger">Please Select either one</small>
+            </div>
         </div>
       </div>
       
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Password</span></label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" formControlName="password"
+          [class.is-invalid]="getRegistrationPassword.invalid && getRegistrationPassword.touched" name="password">
+          <div *ngIf="getRegistrationPassword.invalid && getRegistrationPassword.touched">
+            <small *ngIf="getRegistrationPassword.errors?.required" class="text-danger">Password is required</small>
+            <small *ngIf="getRegistrationPassword.errors?.pattern" class="text-danger">Password is invalid</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-8 col-form-label"><span>Confirm Password</span></label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" formControlName="confirmpassword"
+          [class.is-invalid]="getConfirmPassword.invalid && getConfirmPassword.touched" name="confirmpassword">
+          <div *ngIf="getConfirmPassword.invalid && getConfirmPassword.touched">
+            <small *ngIf="getConfirmPassword.errors?.required" class="text-danger">Password is required</small>
+            <small *ngIf="getConfirmPassword.errors?.mustMatch" class="text-danger">Password doesn't match</small>
+          </div>
+        </div>
+      </div>
       <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
           <button type="submit" class="submit" [disabled]="signupForm.invalid">Sign in</button>

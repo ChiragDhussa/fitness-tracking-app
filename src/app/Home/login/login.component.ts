@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import { phoneNumberValidator } from 'src/app/validators/phone-validator';
-//import { phoneNumberValidator } from 'src/app/validators/phone-validator';
+import { MustMatch } from 'src/app/_helpers/must-match.validator';
 
 @Component({
   selector: 'app-login',
@@ -9,45 +9,62 @@ import { phoneNumberValidator } from 'src/app/validators/phone-validator';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+  passwordPattern: string = "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$";
   
   get getUsername(){
     return this.loginForm.get('username');
   }
-
+  
   get getPassword(){
     return this.loginForm.get('password');
   }
-
+  
   get getFullname(){
     return this.signupForm.get('fullname');
   }
-
+  
   get getEmail(){
     return this.signupForm.get('email');
   }
-
+  
   get getMobile(){
     return this.signupForm.get('mobile');
   }
-  constructor(private lf: FormBuilder, private sf: FormBuilder) { }
+  
+  get getRegistrationPassword(){
+    return this.signupForm.get('password');
+  }
 
+  get getConfirmPassword(){
+    return this.signupForm.get('confirmpassword');
+  }
+
+  get getGender(){
+    return this.signupForm.get('gender');
+  }
+  constructor(private lf: FormBuilder, private sf: FormBuilder) { }
+  
   ngOnInit() {
     document.querySelector('.img__btn').addEventListener('click', function() {
       document.querySelector('.cont').classList.toggle('s--signup');
     });
   }
-
+  
   loginForm = this.lf.group({
     username: ['', Validators.required],
     password: ['', Validators.required]
   });
-
+  
   signupForm = this.sf.group({
     fullname: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     mobile: ['', [Validators.required, phoneNumberValidator, Validators.minLength(10), Validators.maxLength(10)]],
-    gender: ['', Validators.required]
+    password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+    gender: ['', Validators.required],
+    confirmpassword: ['', Validators.required]
+  },{
+    validator: MustMatch('password', 'confirmpassword')
   });
 }
