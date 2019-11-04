@@ -10,7 +10,8 @@ import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 export class ContactUsComponent implements OnInit {
 
   faBookOpen = faBookOpen;
-  emailPattern: string = "^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+)+((\.)[a-z]{2,})+$";
+  emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+  namePattern: string = "[a-zA-Z]*";
 
   get getFullName() {
     return this.registrationForm.get('fullName');
@@ -33,7 +34,7 @@ export class ContactUsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   registrationForm = this.fb.group({
-    fullName: ['', Validators.required],
+    fullName: ['', [Validators.required, Validators.pattern(this.namePattern)]],
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     subject: ['', [Validators.required, Validators.minLength(10)]],
     message: ['', [Validators.required, Validators.minLength(25)]]

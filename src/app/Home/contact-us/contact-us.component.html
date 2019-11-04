@@ -23,10 +23,11 @@
                           <input [class.is-invalid]="getFullName.invalid && getFullName.touched"
                               formControlName="fullName" type="text" class="form-control" id="fullname"
                               name="fullname" placeholder="Full name">
-                          <small [class.d-none]="getFullName.valid || getFullName.untouched" class="text-danger">Your
-                              name
-                              is
-                              required</small>
+                              <div *ngIf="getFullName.invalid && getFullName.touched">
+                                <small *ngIf="getFullName.errors?.required" class="text-danger">Your name is
+                                    required</small>
+                                <small *ngIf="getFullName.errors?.pattern" class="text-danger">Your name is invalid because it can't contain Numbers</small>
+                            </div>
                       </div>
                       <div class="form-group">
                           <span><i class="fa fa-envelope icon" id="faicon"></i></span>
@@ -65,7 +66,7 @@
                           </div>
                       </div>
                       <div class="form-footer" align="center">
-                          <button type="submit" class="offset" [disabled]="registrationForm.invalid"><b>SUBMIT</b></button>
+                          <button type="submit" class="button" [disabled]="registrationForm.invalid"><b>SUBMIT</b></button>
                       </div>
                   </form>
               </div>
@@ -87,7 +88,7 @@
                       <tr>
                           <th>
                               <div class="office-icon">
-                                  <img src="/assets/images/office-icon3.png"
+                                  <img src="/assets/images/office-icon.png"
                                       height="65px" width="65px">
                               </div>
                           </th>
