@@ -1,19 +1,37 @@
 <div class="cont" style="margin-top: 100px;">
-  <div class="form sign-in">
-    <h2>Welcome back,</h2>
-    <label>
-      <span>Email</span>
-      <input type="email" />
-    </label>
-    <label>
+  <form class="sign-in" [formGroup]="loginForm">
+    <p style="font-size: 30px; font-weight: 500;" align="center">Welcome Back</p>
+    <div class="form-group" style="width: 380px; margin-left: 100px;">
+      <label for="staticName" class="col-sm-2 col-form-label"><span>Username</span></label>
+      <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="username"
+          [class.is-invalid]="getUsername.invalid && getUsername.touched" name="username">
+          <small [class.d-none]="getUsername.valid || getUsername.untouched" class="text-danger">
+            Username is required
+          </small>
+      </div>
+      <label for="staticName" class="col-sm-2 col-form-label"><span>Password</span></label>
+      <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="password"
+          [class.is-invalid]="getPassword.invalid && getPassword.touched" name="password">
+          <small [class.d-none]="getPassword.valid || getPassword.untouched" class="text-danger">
+            Password is required
+          </small>
+      </div>
+  </div>
+    <!-- <label>
       <span>Password</span>
       <input type="password" />
-    </label>
+    </label> -->
     <p class="forgot-pass">Forgot password?</p>
-    <button type="button" class="submit">Sign In</button>
+    <div class="form-group row">
+      <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="submit" [disabled]="loginForm.invalid">Sign in</button>
+      </div>
   </div>
+  </form>
   <div class="sub-cont">
-    <div class="img" style="background-image: url('assets/images/luis-quintero-aoz8a7jO0QI-unsplash.jpg') ;">
+    <div class="img">
       <div class="img__text m--up">
         <h2>New here?</h2>
         <p>Sign up and discover great amount of new opportunities!</p>
@@ -27,8 +45,8 @@
         <span class="m--in">Sign In</span>
       </div>
     </div>
-    <div class="form sign-up">
-      <h2>Time to feel like home,</h2>
+    <form class="sign-up" [formGroup]="loginForm">
+      <h2>Time to feel like Home</h2>
       <label>
         <span>Name</span>
         <input type="text" />
@@ -42,6 +60,6 @@
         <input type="password" />
       </label>
       <button type="button" class="submit">Sign Up</button>
-    </div>
+    </form>
   </div>
 </div>
