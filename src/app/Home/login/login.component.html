@@ -1,24 +1,26 @@
-<div class="cont" style="margin-top: 100px;">
+<div class="cont">
   <form class="sign-in" [formGroup]="loginForm">
     <p style="font-size: 30px; font-weight: 500;" align="center">Welcome Back</p>
     <div class="form-group" style="width: 380px; margin-left: 100px;">
       <label for="staticName" class="col-sm-2 col-form-label"><span>Username</span></label>
       <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="username"
-          [class.is-invalid]="getUsername.invalid && getUsername.touched" name="username">
-          <small [class.d-none]="getUsername.valid || getUsername.untouched" class="text-danger">
-            Username is required
-          </small>
+        <input type="text" class="form-control" formControlName="username"
+        [class.is-invalid]="getUsername.invalid && getUsername.touched" name="username">
+        <small [class.d-none]="getUsername.valid || getUsername.untouched" class="text-danger">
+          Username is required
+        </small>
       </div>
+    </div>
+    <div class="form-group" style="width: 380px; margin-left: 100px;">
       <label for="staticName" class="col-sm-2 col-form-label"><span>Password</span></label>
       <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="password"
-          [class.is-invalid]="getPassword.invalid && getPassword.touched" name="password">
-          <small [class.d-none]="getPassword.valid || getPassword.untouched" class="text-danger">
-            Password is required
-          </small>
+        <input type="text" class="form-control" formControlName="password"
+        [class.is-invalid]="getPassword.invalid && getPassword.touched" name="password">
+        <small [class.d-none]="getPassword.valid || getPassword.untouched" class="text-danger">
+          Password is required
+        </small>
       </div>
-  </div>
+    </div>
     <!-- <label>
       <span>Password</span>
       <input type="password" />
@@ -26,9 +28,9 @@
     <p class="forgot-pass">Forgot password?</p>
     <div class="form-group row">
       <div class="col-sm-10 offset-sm-2">
-          <button type="submit" class="submit" [disabled]="loginForm.invalid">Sign in</button>
+        <button type="submit" class="submit" [disabled]="loginForm.invalid">Sign in</button>
       </div>
-  </div>
+    </div>
   </form>
   <div class="sub-cont">
     <div class="img">
@@ -45,21 +47,61 @@
         <span class="m--in">Sign In</span>
       </div>
     </div>
-    <form class="sign-up" [formGroup]="loginForm">
-      <h2>Time to feel like Home</h2>
-      <label>
-        <span>Name</span>
-        <input type="text" />
-      </label>
-      <label>
-        <span>Email</span>
-        <input type="email" />
-      </label>
-      <label>
-        <span>Password</span>
-        <input type="password" />
-      </label>
-      <button type="button" class="submit">Sign Up</button>
+    <form class="sign-up" [formGroup]="signupForm">
+      <p style="font-size: 30px; font-weight: 500;" align="center">Time to feel like Home</p>
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Full Name</span></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="fullname"
+          [class.is-invalid]="getFullname.invalid && getFullname.touched" name="fullname">
+          <small [class.d-none]="getFullname.valid || getFullname.untouched" class="text-danger">
+            Full Name is required
+          </small>
+        </div>
+      </div>
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Email</span></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="email"
+          [class.is-invalid]="getEmail.invalid && getEmail.touched" name="email">
+          <div *ngIf="getEmail.invalid && getEmail.touched">
+            <small *ngIf="getEmail.errors?.required" class="text-danger">Email is required</small>
+            <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-6 col-form-label"><span>Mobile Number</span></label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" formControlName="mobile"
+          [class.is-invalid]="getMobile.invalid && getMobile.touched" name="mobile">
+          <div *ngIf="getMobile.invalid && getMobile.touched">
+            <div *ngIf="getMobile.errors?.required" class="text-danger" style="text-align: center;"><small style="margin-left: 94px;">Mobile Number is required</small></div><br>
+            <div *ngIf="getMobile.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small style="margin-left: 100px;">Mobile Number should be in number</small></div><br>
+            <div *ngIf="getMobile.errors?.minlength || getMobile.errors?.maxlength" class="text-danger"  style="margin-top: -30px;"><small style="margin-left: 100px;">Mobile Number should be of 10 digits</small></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Gender</span></label>
+        <div class="col-sm-10">
+          <div class="custom-control custom-radio">
+            <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
+            <label class="custom-control-label" for="male">Male</label>
+          </div>    
+          <div class="custom-control custom-radio">
+            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+            <label class="custom-control-label" for="female">Female</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="submit" [disabled]="signupForm.invalid">Sign in</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

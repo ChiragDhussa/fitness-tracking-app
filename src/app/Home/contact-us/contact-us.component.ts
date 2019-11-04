@@ -10,7 +10,7 @@ import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 export class ContactUsComponent implements OnInit {
 
   faBookOpen = faBookOpen;
-  emailPattern: string = "^[_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+)+((\.)[a-z]{2,})+$";
+  emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
   get getFullName() {
     return this.registrationForm.get('fullName');

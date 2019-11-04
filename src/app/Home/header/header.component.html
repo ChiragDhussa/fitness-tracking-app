@@ -1,7 +1,6 @@
-
 <nav class="navbar navbar-expand-md bg-light navbar-light sticky-top">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Get Fit</a>
+  <a class="navbar-brand" routerLink="/" style="font-family: Metropolis;">Get Fit</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,18 +11,18 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav justify-content-end ml-auto">
           <li class="nav-item " routerLinkActive = "active" [routerLinkActiveOptions] = "{exact:true}">
-              <a class="nav-link subtemp" routerLink="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link subtemp" routerLink="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item " routerLinkActive = "active">
               <a class="nav-link  subtemp" routerLink="/features">Features</a>
           </li>
       
           <li class="nav-item " routerLinkActive = "active">
-              <a class="nav-link subtemp" routerLink="#">About Us</a>
+              <a class="nav-link subtemp" routerLink="/aboutus">About Us</a>
           </li>
       
           <li class="nav-item " routerLinkActive = "active">
-              <a class="nav-link subtemp " routerLink="#">Contact Us</a>
+              <a class="nav-link subtemp " routerLink="/contactus">Contact Us</a>
           </li>
       </ul>
   </div>

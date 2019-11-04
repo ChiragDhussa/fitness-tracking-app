@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {FormBuilder, Validators} from '@angular/forms';
+import { phoneNumberValidator } from 'src/app/validators/phone-validator';
+//import { phoneNumberValidator } from 'src/app/validators/phone-validator';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  // loginForm : FormGroup;
+  emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
   
   get getUsername(){
     return this.loginForm.get('username');
@@ -18,16 +19,23 @@ export class LoginComponent implements OnInit {
   get getPassword(){
     return this.loginForm.get('password');
   }
+
+  get getFullname(){
+    return this.signupForm.get('fullname');
+  }
+
+  get getEmail(){
+    return this.signupForm.get('email');
+  }
+
+  get getMobile(){
+    return this.signupForm.get('mobile');
+  }
   constructor(private lf: FormBuilder, private sf: FormBuilder) { }
 
   ngOnInit() {
     document.querySelector('.img__btn').addEventListener('click', function() {
       document.querySelector('.cont').classList.toggle('s--signup');
-
-      // this.loginForm = new FormGroup({
-      //   username: new FormControl('', Validators.required),
-      //   password: new FormControl('', Validators.required)
-      // });
     });
   }
 
@@ -37,6 +45,9 @@ export class LoginComponent implements OnInit {
   });
 
   signupForm = this.sf.group({
-    
+    fullname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+    mobile: ['', [Validators.required, phoneNumberValidator, Validators.minLength(10), Validators.maxLength(10)]],
+    gender: ['', Validators.required]
   });
 }
