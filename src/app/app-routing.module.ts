@@ -8,7 +8,7 @@ import { ContactUsComponent } from './Home/contact-us/contact-us.component';
 const routes: Routes = [
   {path : '', component : LoginComponent},
   {path : 'aboutus', component : AboutUsComponent},
-  {path : 'features', component : FeaturesComponent},
+  {path : 'features', component: FeaturesComponent},
   {path : 'contactus', component : ContactUsComponent}
 ];
 
