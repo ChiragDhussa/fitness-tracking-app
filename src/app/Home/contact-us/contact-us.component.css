@@ -115,7 +115,7 @@ input {
     width: 100%;
     font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
     padding: 24px 39px;
-    border-radius: 25px;
+    border-radius: 15px;
     font-size: 16px;
     display: block;
     line-height: 1.5;
@@ -128,7 +128,7 @@ input {
 }
 textarea {
     min-height: 150px;
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 14px 25px;
     width: 100%;
     font-size: 16px;
