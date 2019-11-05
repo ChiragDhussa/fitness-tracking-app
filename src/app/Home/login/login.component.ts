@@ -90,15 +90,5 @@ export class LoginComponent implements OnInit {
     validator: MustMatch('password', 'confirmpassword')
   });
 
-  
-  calculateAge(){
-    var bdate = <HTMLElement>document.getElementById("txtdate");
-    
-    var dt = new Date();
-    var today = dt.getDate();
-    console.log(bdate);
-    console.log("Hello");
-
-  }
 }
 
