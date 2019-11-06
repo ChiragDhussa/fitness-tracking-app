@@ -2,20 +2,19 @@
   <form class="sign-in" [formGroup]="loginForm">
     <p style="font-size: 30px; font-weight: 500;" align="center">Welcome Back</p>
     <div class="form-group" style="width: 380px; margin-left: 100px;">
-      <label for="staticName" class="col-sm-2 col-form-label"><span>Username</span></label>
+      <label for="staticName" class="col-sm-2 col-form-label"><span>Email</span></label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" formControlName="username"
-        [class.is-invalid]="getUsername.invalid && getUsername.touched" name="username">
-        <small [class.d-none]="getUsername.valid || getUsername.untouched" class="text-danger">
-          Username is required
-        </small>
+        <input type="text" class="form-control" formControlName="email" name="email">
+        <div *ngIf="getLoginEmail.invalid && (getLoginEmail.touched || getLoginEmail.dirty)">
+          <small *ngIf="getLoginEmail.errors?.required" class="text-danger">Email is required</small>
+          <small *ngIf="getLoginEmail.errors?.pattern" class="text-danger">Email is invalid</small>
+        </div>
       </div>
     </div>
     <div class="form-group" style="width: 380px; margin-left: 100px;">
       <label for="staticName" class="col-sm-2 col-form-label"><span>Password</span></label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" formControlName="password"
-        [class.is-invalid]="getPassword.invalid && getPassword.touched" name="password">
+        <input type="text" class="form-control" formControlName="password" name="password">
         <small [class.d-none]="getPassword.valid || getPassword.untouched" class="text-danger">
           Password is required
         </small>
@@ -52,19 +51,20 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Full Name</span></label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="fullname"
-          [class.is-invalid]="getFullname.invalid && getFullname.touched" name="fullname">
-          <small [class.d-none]="getFullname.valid || getFullname.untouched" class="text-danger">
-            Full Name is required
-          </small>
+          <input type="text" class="form-control" formControlName="fullname" name="fullname">
+          <div *ngIf="getFullname.invalid && (getFullname.touched || getFullname.dirty)">
+            <small *ngIf="getFullname.errors?.required" class="text-danger">Full Name is required</small>
+            <small *ngIf="getFullname.errors?.pattern" class="text-danger" style="margin-left: 100px;">Name should have
+              characters only</small>
+          </div>
         </div>
       </div>
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Email</span></label>
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="email"
-          [class.is-invalid]="getEmail.invalid && getEmail.touched" name="email">
-          <div *ngIf="getEmail.invalid && getEmail.touched">
+            [class.is-invalid]="getEmail.invalid && getEmail.touched" name="email">
+          <div *ngIf="getEmail.invalid && (getEmail.touched || getEmail.dirty)">
             <small *ngIf="getEmail.errors?.required" class="text-danger">Email is required</small>
             <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
           </div>
@@ -73,62 +73,101 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-6 col-form-label"><span>Mobile Number</span></label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="mobile"
-          [class.is-invalid]="getMobile.invalid && getMobile.touched" name="mobile">
-          <div *ngIf="getMobile.invalid && getMobile.touched">
-            <div *ngIf="getMobile.errors?.required" class="text-danger" style="text-align: center;"><small style="margin-left: 94px;">Mobile Number is required</small></div><br>
-            <div *ngIf="getMobile.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small style="margin-left: 100px;">Mobile Number should be in number</small></div><br>
-            <div *ngIf="getMobile.errors?.minlength || getMobile.errors?.maxlength" class="text-danger"  style="margin-top: -30px;"><small style="margin-left: 100px;">Mobile Number should be of 10 digits</small></div>
+          <input type="text" class="form-control" formControlName="mobile" name="mobile" maxlength="10">
+          <div *ngIf="getMobile.invalid && (getMobile.touched || getMobile.dirty)">
+            <div *ngIf="getMobile.errors?.required" class="text-danger" style="text-align: center;"><small
+                style="margin-left: 94px;">Mobile Number is required</small></div><br>
+            <div *ngIf="getMobile.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small
+                style="margin-left: 100px;">Mobile Number should be in number</small></div><br>
+            <div *ngIf="getMobile.errors?.minlength" class="text-danger" style="margin-top: -30px;"><small
+                style="margin-left: 100px;">Mobile Number should be of 10 digits</small></div>
           </div>
         </div>
       </div>
-      
-      <div class="form-group" style="width: 380px; margin-left: 100px;">
+
+      <div class="form-group" style="width: 380px; margin-left: 100px; margin-top: -10px">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Gender</span></label>
-        <div class="col-sm-10 row" >
+        <div class="col-sm-10 row">
           <div class="custom-control custom-radio">
-            <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
+            <input id="male" type="radio" class="custom-control-input" value="male" name="gender"
+              formControlName="gender">
             <label class="custom-control-label" for="male" style="width: 50px; margin-left: 60px;">Male</label>
-          </div>    
+          </div>
           <div class="custom-control custom-radio">
-            <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+            <input id="female" type="radio" class="custom-control-input" value="female" name="gender"
+              formControlName="gender">
             <label class="custom-control-label" for="female" style="width: 50px; margin-left: 50px;">Female</label>
           </div>
           <div class="custom-control custom-radio">
-            <input id="others" type="radio" class="custom-control-input" value="others" name="gender" formControlName="gender">
+            <input id="others" type="radio" class="custom-control-input" value="others" name="gender"
+              formControlName="gender">
             <label class="custom-control-label" for="others" style="width: 50px; margin-left: 50px;">Others</label>
           </div>
           <div *ngIf="getGender.invalid && getGender.touched">
-              <small *ngIf="getGender.errors?.required" class="text-danger">Please Select either one</small>
-            </div>
+            <small *ngIf="getGender.errors?.required" class="text-danger">Please Select either one</small>
+          </div>
         </div>
       </div>
-      
+
       <div class="form-group" style="width: 380px; margin-left: 100px;">
-        <label for="staticName" class="col-sm-2 col-form-label"><span>Password</span></label>
+        <label for="staticName" class="col-sm-6 col-form-label"><span>Password &nbsp;<i class="fa fa-question-circle-o"
+              aria-hidden="true"
+              title="Password should be of min. 6 characters. &#x000D;It should have atleast one numeric character.&#x000D;It should have atleast one lowercase alphabet.&#x000D;It should have atleast one uppercase alphabet.&#x000D;It should have atleast one a special character"></i></span></label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" formControlName="password"
-          [class.is-invalid]="getRegistrationPassword.invalid && getRegistrationPassword.touched" name="password">
-          <div *ngIf="getRegistrationPassword.invalid && getRegistrationPassword.touched">
+          <input type="password" class="form-control" formControlName="password" name="password">
+          <div
+            *ngIf="getRegistrationPassword.invalid && (getRegistrationPassword.touched || getRegistrationPassword.dirty)">
             <small *ngIf="getRegistrationPassword.errors?.required" class="text-danger">Password is required</small>
-            <small *ngIf="getRegistrationPassword.errors?.pattern" class="text-danger">Password is invalid</small>
+            <small *ngIf="getRegistrationPassword.errors?.pattern" class="text-danger"
+              style="margin-left: 100px;">Password Should match the pattern</small>
           </div>
         </div>
       </div>
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-8 col-form-label"><span>Confirm Password</span></label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" formControlName="confirmpassword"
-          [class.is-invalid]="getConfirmPassword.invalid && getConfirmPassword.touched" name="confirmpassword">
-          <div *ngIf="getConfirmPassword.invalid && getConfirmPassword.touched">
+          <input type="password" class="form-control" formControlName="confirmpassword" name="confirmpassword">
+          <div *ngIf="getConfirmPassword.invalid && (getConfirmPassword.touched || getConfirmPassword.dirty)">
             <small *ngIf="getConfirmPassword.errors?.required" class="text-danger">Password is required</small>
             <small *ngIf="getConfirmPassword.errors?.mustMatch" class="text-danger">Password doesn't match</small>
           </div>
         </div>
       </div>
+
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>D.O.B.</span></label>
+        <div class="col-sm-10">
+          <input class="form-control" type="date" id="txtdate">
+        </div>
+      </div>
+
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Height(cm)</span></label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" formControlName="height" name="height">
+          <div *ngIf="getHeight.invalid && (getHeight.touched || getHeight.dirty)">
+            <div *ngIf="getHeight.errors?.required" class="text-danger" style="text-align: center;"><small
+                style="margin-left: 94px;">Height is required</small></div><br>
+            <div *ngIf="getHeight.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small
+                style="margin-left: 48px;">Height can't be negative & must be in numbers</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" style="width: 380px; margin-left: 100px;">
+        <label for="staticName" class="col-sm-2 col-form-label"><span>Weight(kg)</span></label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" formControlName="weight" name="weight">
+          <div *ngIf="getWeight.invalid && (getWeight.touched || getWeight.dirty)">
+            <div *ngIf="getWeight.errors?.required" class="text-danger" style="text-align: center;"><small
+                style="margin-left: 94px;">Weight is required</small></div><br>
+            <div *ngIf="getHeight.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small
+                style="margin-left: 48px;">Weight can't be negative & must be in numbers</small></div><br>
+          </div>
+        </div>
+      </div>
       <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
-          <button type="submit" class="submit" [disabled]="signupForm.invalid">Sign in</button>
+          <button type="submit" class="submit" >Sign in</button>
         </div>
       </div>
     </form>

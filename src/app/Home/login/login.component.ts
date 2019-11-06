@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import { phoneNumberValidator } from 'src/app/validators/phone-validator';
 import { MustMatch } from 'src/app/_helpers/must-match.validator';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +13,13 @@ export class LoginComponent implements OnInit {
   
   emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
   passwordPattern: string = "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$";
+  namePattern: string = "[a-zA-Z]*";
+  agePattern: string = "^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$";
+ 
   
-  get getUsername(){
-    return this.loginForm.get('username');
+  
+  get getLoginEmail(){
+    return this.loginForm.get('email');
   }
   
   get getPassword(){
@@ -44,6 +49,20 @@ export class LoginComponent implements OnInit {
   get getGender(){
     return this.signupForm.get('gender');
   }
+
+  get getAge(){
+    return this.signupForm.get('age');
+  }
+
+  get getHeight(){
+    return this.signupForm.get('height');
+  }
+
+  get getWeight(){
+    return this.signupForm.get('weight');
+  }
+  
+
   constructor(private lf: FormBuilder, private sf: FormBuilder) { }
   
   ngOnInit() {
@@ -53,18 +72,23 @@ export class LoginComponent implements OnInit {
   }
   
   loginForm = this.lf.group({
-    username: ['', Validators.required],
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     password: ['', Validators.required]
   });
   
   signupForm = this.sf.group({
-    fullname: ['', Validators.required],
+    fullname: ['', [Validators.required, Validators.pattern(this.namePattern)]],
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-    mobile: ['', [Validators.required, phoneNumberValidator, Validators.minLength(10), Validators.maxLength(10)]],
+    mobile: ['', [Validators.required, phoneNumberValidator, Validators.minLength(10)]],
     password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+    age: ['', Validators.required, Validators.pattern(this.agePattern)],
     gender: ['', Validators.required],
-    confirmpassword: ['', Validators.required]
+    confirmpassword: ['', Validators.required],
+    height: ['', [Validators.required, phoneNumberValidator]],
+    weight: ['', [Validators.required, phoneNumberValidator]]
   },{
     validator: MustMatch('password', 'confirmpassword')
   });
+
 }
+
