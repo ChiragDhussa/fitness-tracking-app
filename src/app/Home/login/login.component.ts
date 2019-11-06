@@ -62,7 +62,9 @@ export class LoginComponent implements OnInit {
     return this.signupForm.get('weight');
   }
   
-
+  get getDateOfBirth(){
+    return this.signupForm.get('dateofbirth');
+  }
   constructor(private lf: FormBuilder, private sf: FormBuilder) { }
   
   ngOnInit() {
@@ -85,7 +87,8 @@ export class LoginComponent implements OnInit {
     gender: ['', Validators.required],
     confirmpassword: ['', Validators.required],
     height: ['', [Validators.required, phoneNumberValidator]],
-    weight: ['', [Validators.required, phoneNumberValidator]]
+    weight: ['', [Validators.required, phoneNumberValidator]],
+    dateofbirth: ['', Validators.required]
   },{
     validator: MustMatch('password', 'confirmpassword')
   });

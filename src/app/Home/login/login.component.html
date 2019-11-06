@@ -62,8 +62,7 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Email</span></label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="email"
-            [class.is-invalid]="getEmail.invalid && getEmail.touched" name="email">
+          <input type="text" class="form-control" formControlName="email" name="email">
           <div *ngIf="getEmail.invalid && (getEmail.touched || getEmail.dirty)">
             <small *ngIf="getEmail.errors?.required" class="text-danger">Email is required</small>
             <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
@@ -137,7 +136,10 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>D.O.B.</span></label>
         <div class="col-sm-10">
-          <input class="form-control" type="date" id="txtdate">
+          <input class="form-control" type="date" formControlName="dateofbirth" name="dateofbirth">
+          <div *ngIf="getDateOfBirth.invalid && (getDateOfBirth.touched || getDateOfBirth.dirty)">
+            <small *ngIf="getDateOfBirth.errors?.required" class="text-danger">Please select date</small>
+          </div>
         </div>
       </div>
 
