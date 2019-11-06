@@ -22,7 +22,7 @@
                             <input [class.is-invalid]="getFullName.invalid && getFullName.touched"
                                 formControlName="fullName" type="text" class="form-control" id="fullname"
                                 name="fullname" placeholder="Full name">
-                            <div *ngIf="getFullName.invalid && getFullName.touched">
+                            <div *ngIf="getFullName.invalid && (getFullName.touched || getFullName.dirty)">
                                 <small *ngIf="getFullName.errors?.required" class="text-danger">Your name is
                                     required</small>
                                 <small *ngIf="getFullName.errors?.pattern" class="text-danger">Your name is invalid
@@ -34,7 +34,7 @@
                             <input [class.is-invalid]="getEmail.invalid && getEmail.touched" formControlName="email"
                                 type="email" class="form-control" id="email" placeholder="Email" name="email"
                                 maxlength="50" />
-                            <div *ngIf="getEmail.invalid && getEmail.touched">
+                            <div *ngIf="getEmail.invalid && (getEmail.touched || getEmail.dirty)">
                                 <small *ngIf="getEmail.errors?.required" class="text-danger">Your email is
                                     required</small>
                                 <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
@@ -47,7 +47,7 @@
                             <input [class.is-invalid]="getSubject.invalid && getSubject.touched"
                                 formControlName="subject" class="form-control" type="text" id="subject" name="subject"
                                 maxlength="40" placeholder="Subject" />
-                            <div *ngIf="getSubject.invalid && getSubject.touched">
+                            <div *ngIf="getSubject.invalid && (getSubject.touched || getSubject.dirty)">
                                 <small *ngIf="getSubject.errors?.required" class="text-danger">Subject is
                                     required</small>
                                 <small *ngIf="getSubject.errors?.minlength" class="text-danger">Subject
@@ -58,7 +58,7 @@
                             <textarea [class.is-invalid]="getMessage.invalid && getMessage.touched"
                                 formControlName="message" id="message" class="form-control" placeholder="Message"
                                 name="message"></textarea>
-                            <div *ngIf="getMessage.invalid && getMessage.touched">
+                            <div *ngIf="getMessage.invalid && (getMessage.touched || getMessage.dirty)">
                                 <small *ngIf="getMessage.errors?.required" class="text-danger">Message is
                                     required</small>
                                 <small *ngIf="getMessage.errors?.minlength" class="text-danger">Message
