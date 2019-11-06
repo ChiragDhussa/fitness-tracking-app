@@ -23,7 +23,6 @@ ul {
 li { 
   position: relative; 
   padding: 15px 5px;
-  /* border: #000 1px solid; */
 }
 a {
   color: #000;
@@ -33,6 +32,8 @@ a {
   display: inline-block;
   padding: 15px 20px;
   position: relative;
+  border: none;
+  outline: none;
 }
 a.subtemp:after {    
   background: repeat scroll 0 0 transparent;
@@ -45,10 +46,17 @@ a.subtemp:after {
   background: #ED2553;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
+  outline: none;
 }
 a:hover:after { 
   width: 100%; 
   left: 0; 
+  outline: none;
+}
+a:focus:hover{
+  outline: none;
+  border: none;
+  text-decoration: none;
 }
 @media screen and (max-height: 300px) {
     ul {
