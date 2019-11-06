@@ -62,8 +62,7 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Email</span></label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" formControlName="email"
-            [class.is-invalid]="getEmail.invalid && getEmail.touched" name="email">
+          <input type="text" class="form-control" formControlName="email" name="email">
           <div *ngIf="getEmail.invalid && (getEmail.touched || getEmail.dirty)">
             <small *ngIf="getEmail.errors?.required" class="text-danger">Email is required</small>
             <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
@@ -137,14 +136,17 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>D.O.B.</span></label>
         <div class="col-sm-10">
-          <input class="form-control" type="date" id="txtdate">
+          <input class="form-control" type="date" formControlName="dateofbirth" name="dateofbirth">
+          <div *ngIf="getDateOfBirth.invalid && (getDateOfBirth.touched || getDateOfBirth.dirty)">
+            <small *ngIf="getDateOfBirth.errors?.required" class="text-danger">Please select date</small>
+          </div>
         </div>
       </div>
 
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Height(cm)</span></label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" formControlName="height" name="height">
+          <input type="number" class="form-control" formControlName="height" name="height" min="50" max="300">
           <div *ngIf="getHeight.invalid && (getHeight.touched || getHeight.dirty)">
             <div *ngIf="getHeight.errors?.required" class="text-danger" style="text-align: center;"><small
                 style="margin-left: 94px;">Height is required</small></div><br>
@@ -156,18 +158,18 @@
       <div class="form-group" style="width: 380px; margin-left: 100px;">
         <label for="staticName" class="col-sm-2 col-form-label"><span>Weight(kg)</span></label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" formControlName="weight" name="weight">
+          <input type="number" class="form-control" formControlName="weight" name="weight" min="30" max="200">
           <div *ngIf="getWeight.invalid && (getWeight.touched || getWeight.dirty)">
             <div *ngIf="getWeight.errors?.required" class="text-danger" style="text-align: center;"><small
                 style="margin-left: 94px;">Weight is required</small></div><br>
             <div *ngIf="getHeight.errors?.invalidNumber" class="text-danger" style="margin-top: -30px;"><small
-                style="margin-left: 48px;">Weight can't be negative & must be in numbers</small></div><br>
+                style="margin-left: 46px;">Weight can't be negative & must be in numbers</small></div><br>
           </div>
         </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
-          <button type="submit" class="submit" >Sign in</button>
+          <button type="submit" class="submit" [disabled]="signupForm.invalid">Sign in</button>
         </div>
       </div>
     </form>
