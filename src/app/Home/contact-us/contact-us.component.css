@@ -71,11 +71,10 @@ button {
 }
 #image-contact {
     height: 315px;
-    width: 350px;
+    width: 100%;
 }
 .contact-pic {
     margin-top: 58px;
-    margin-left: 150px;
     animation: contact-pic ease-in-out 1s infinite alternate;
     transform-origin: center -20px;
     float:left;
@@ -101,7 +100,7 @@ button {
     content: '';
     position: absolute;
     width: 6px; height: 6px;
-    top: -14px;left: 182px;
+    top: -14px;left: 202px;
     z-index: 5;
     border-radius: 50% 50%;
     background: #000;
