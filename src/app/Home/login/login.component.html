@@ -12,9 +12,9 @@
                             characters</small>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="text" formControlName="mobile"  placeholder="Mobile number:" maxlength="10">
+                    <input type="text" formControlName="mobile" placeholder="Mobile number:" maxlength="10">
                     <div *ngIf="getMobile.invalid && getMobile.touched && getMobile.pristine" style="margin-top: -7%;">
                         <small *ngIf="getMobile.errors?.required" class="text-danger">Mobile Number is required</small>
                     </div>
@@ -29,17 +29,17 @@
                             Number is required</small>
                     </div>
                 </div>
-              
+
                 <div class="form-group">
-                    <input type="text" formControlName="email"  placeholder="Email:">
+                    <input type="text" formControlName="email" placeholder="Email:">
                     <div *ngIf="getEmail.invalid && (getEmail.touched || getEmail.dirty)" style="margin-top: -7%;">
                         <small *ngIf="getEmail.errors?.required" class="text-danger">Your email is required</small>
                         <small *ngIf="getEmail.errors?.pattern" class="text-danger">Email is invalid</small>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="password" formControlName="password"  placeholder="Password:">
+                    <input type="password" formControlName="password" placeholder="Password:">
                     <div *ngIf="getRegistrationPassword.invalid && (getRegistrationPassword.touched || getRegistrationPassword.dirty)"
                         style="margin-top: -7%;">
                         <small *ngIf="getRegistrationPassword.errors?.required" class="text-danger">Password is
@@ -48,10 +48,9 @@
                             the pattern</small>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="password"  formControlName="confirmpassword"
-                        placeholder="Enter password again:">
+                    <input type="password" formControlName="confirmpassword" placeholder="Enter password again:">
                     <div *ngIf="getConfirmPassword.invalid && (getConfirmPassword.touched || getConfirmPassword.dirty)"
                         style="margin-top: -7%;">
                         <small *ngIf="getConfirmPassword.errors?.required" class="text-danger">Password is
@@ -60,7 +59,7 @@
                             match</small>
                     </div>
                 </div>
-            
+
                 <div class="form-group" style="width: 380px; margin-top: -18px; margin-bottom: 20px;">
                     <label for="staticGender" class="col-form-label"
                         style="margin-right: 90%;"><span>Gender:</span></label>
@@ -89,66 +88,67 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="date" formControlName="dateofbirth" name="dateofbirth"  >
+                    <input type="date" formControlName="dateofbirth" name="dateofbirth">
                     <div *ngIf="getDateOfBirth.invalid && (getDateOfBirth.touched || getDateOfBirth.dirty)"
                         style="margin-top: -7%;">
                         <small *ngIf="getDateOfBirth.errors?.required" class="text-danger">Please select date</small>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="number" formControlName="height" placeholder="Height(cm)"  min="50" max="250">
+                    <input type="number" formControlName="height" placeholder="Height(cm)" min="50" max="250">
                     <div *ngIf="getHeight.invalid && (getHeight.touched || getHeight.dirty)" style="margin-top: -7%;">
                         <div *ngIf="getHeight.errors?.required" class="text-danger" style="text-align: center;">
                             <small>Height is required</small>
                         </div><br>
                         <div *ngIf="getHeight.errors?.invalidNumber" class="text-danger" style="margin-top: -12%;">
                             <small>Height can't be negative & must be in numbers</small>
-                          </div>
+                        </div>
                     </div>
                 </div>
-            
+
                 <div class="form-group">
-                    <input type="number" placeholder="Weight(kg)" formControlName="weight"  min="30" max="200">
+                    <input type="number" placeholder="Weight(kg)" formControlName="weight" min="30" max="200">
                     <div *ngIf="getWeight.invalid && (getWeight.touched || getWeight.dirty)" style="margin-top: -7%;">
                         <div *ngIf="getWeight.errors?.required" class="text-danger" style="text-align: center;">
                             <small>Weight is required</small>
                         </div><br>
-                        <div *ngIf="getWeight.errors?.invalidNumber" class="text-danger" style="margin-top: -12%;">
+                        <div *ngIf="getWeight.errors?.invalidNumber" class="text-danger"
+                            style="margin-top: -12%; line-height: 1.1;">
                             <small>Weight can't be negative & must be in numbers</small></div>
                     </div>
-                </div> 
+                </div>
                 <div class="form-group">
-                <button type="submit"  class="bttn btn-1" [disabled] ="signupForm.invalid">Register</button>
-              </div>
+                    <button type="submit" class="bttn btn-1" [disabled]="signupForm.invalid">Register</button>
+                </div>
                 <p class="message">Already registered? <a>Sign In</a></p>
             </form>
             <form class="sign-in" [formGroup]="loginForm">
-  
+
                 <div class="form-group">
-                    <input type="text" formControlName="email"  placeholder="Email:">
+                    <input type="text" formControlName="email" placeholder="Email:">
                     <div *ngIf="getLoginEmail.invalid && (getLoginEmail.touched || getLoginEmail.dirty)"
                         style="margin-top: -7%">
                         <small *ngIf="getLoginEmail.errors?.required" class="text-danger">Email is required</small>
                         <small *ngIf="getLoginEmail.errors?.pattern" class="text-danger">Email is invalid</small>
                     </div>
                 </div>
-  
+
                 <div class="form-group">
-                    <input type="text" placeholder="Password:" formControlName="password" >
+                    <input type="text" placeholder="Password:" formControlName="password">
                     <div *ngIf="getPassword.invalid && (getPassword.touched || getPassword.dirty)"
                         style="margin-top: -7%">
                         <small *ngIf="getPassword.errors?.required" style="margin-top: -20px"
                             class="text-danger">Password is required</small>
                     </div>
                 </div>
-  
+
                 <button type="submit" class="bttn btn-1" [disabled]="loginForm.invalid">Login</button>
-  
+
                 <p class="message">Not registered? <a>Create an account</a></p>
             </form>
         </div>
     </div>
-  </div>
+</div>

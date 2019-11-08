@@ -11,7 +11,7 @@ export class ContactUsComponent implements OnInit {
 
   faBookOpen = faBookOpen;
   emailPattern: string = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-  namePattern: string = "[a-zA-Z]*";
+  namePattern: string = "[a-zA-Z\\s]*$";
 
   get getFullName() {
     return this.registrationForm.get('fullName');
